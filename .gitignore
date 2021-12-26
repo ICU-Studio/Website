@@ -102,3 +102,10 @@ dist
 
 # TernJS port file
 .tern-port
+
+# In-dev files
+src/components/Footer
+src/components/Header
+src/components/Home
+src/components/Posts
+src/components/Tutorials
