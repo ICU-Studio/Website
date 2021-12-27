@@ -2,8 +2,8 @@ import React, { Suspense } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import './App.css';
-import { PostPage } from "./components/PostPage";
-import { Home } from "./components/Home";
+import { PostPage } from "./pages/PostPage";
+import { Home } from "./pages/Home";
 
 function App() {
   return (
