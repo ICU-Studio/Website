@@ -48,7 +48,7 @@ class Projects extends Component {
             ) : null;
         });
         return(
-            <div>
+            <div className={styles.ProjectList}>
                 {projectArray}
             </div>
         );

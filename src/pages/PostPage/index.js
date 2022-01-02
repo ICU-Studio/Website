@@ -8,12 +8,16 @@ export const PostPage = (props) => {
     const [metaData, setMetaData] = useState({});
     const [markdown, setMarkdown] = useState("");
 
-    useEffect(async () => {
-        const [meta, markdown] = await extractMetaData("HelloWorld.md");
-        setMetaData(meta);
-        setMarkdown(markdown);
+    useEffect(() => {
+        const fetchPost = async () => {
+            const [meta, markdown] = await extractMetaData("HelloWorld.md");
+            setMetaData(meta);
+            setMarkdown(markdown);
+        }
+
+        fetchPost();
     }, [])
-    
+
     return (
         <div>
             Post Page

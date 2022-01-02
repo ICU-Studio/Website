@@ -1,0 +1,32 @@
+@import "../../../assets/scss/var";
+
+.Project {
+    padding: 20px;
+    border: 1px solid black;
+    border-radius: 10px;
+    width: 400px;
+    margin: 5px;
+
+    font-family: "Optima";
+
+    a {
+        color: $main;
+        text-decoration: none;
+    }
+
+    h4, p {
+        font-size: 14px;
+    }
+
+    ul {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 0;
+        list-style-type: none;
+
+        li {
+            margin: 0px 5px;
+            font-size: 14px;
+        }
+    }
+}

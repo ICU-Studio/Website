@@ -1,19 +1,23 @@
 import React, { Component } from "react";
-// import styles from "./Project.module.scss";
+import styles from "./Project.module.scss";
+
+// Fontawesome
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUsers, faGlobe, faStar, faCodeBranch, faBalanceScale } from '@fortawesome/free-solid-svg-icons'
 
 class Project extends Component {
     state = {
         contributors: [],
         languages: []
     };
-    
+
     componentDidMount = () => {
         this.contributorsArray();
         this.languagesArray();
     };
-    
+
     contributorsArray = () =>
-        fetch("https://api.github.com/repos/icu-studio/${this.props.name}/contributors")
+        fetch(`https://api.github.com/repos/icu-studio/${this.props.name}/contributors`)
             .then(res => {
                 return res.json();
             })
@@ -26,31 +30,28 @@ class Project extends Component {
 
     languagesArray = () =>
         fetch(this.props.languages)
-        .then(res => res.json())
-        .then(data => {
-            const languages = data;
-            this.setState({
-                languages
+            .then(res => res.json())
+            .then(data => {
+                const languages = data;
+                this.setState({
+                    languages
+                });
             });
-        });
 
     render() {
         let languagesArray = Object.keys(this.state.languages);
-        return(
-            <div>
+        return (
+            <div id={this.props.id} className={styles.Project}>
+                <a href={this.props.github}>{this.props.name.toUpperCase()}</a>
+                <p>{this.props.description}</p>
+                <h4>
+                    <FontAwesomeIcon icon={faUsers} /> Contributor(s):{" "}
+                </h4>
                 <ul>
-                    <li> Project ID: {this.props.id} </li>
-                    <li> Project Name: {this.props.name} </li>
-                    <li> Project Description: {this.props.description ? this.props.description : "No Description"} </li>
-                    <li> Project Stars: {this.props.stars} </li>
-                    <li> Project Forks: {this.props.forks} </li>
-                    <li>
-                        Project Contributors:
-                        <ul>
-                            {this.state.contributors.length > 0 &&
-                                this.state.contributors.map(contributor => {
-                                return (
-                                    <li key={contributor.login}>
+                    {this.state.contributors &&
+                        this.state.contributors.map(contributor => {
+                            return (
+                                <li key={contributor.login}>
                                     <a
                                         target="_blank"
                                         rel="noopener noreferrer"
@@ -58,26 +59,38 @@ class Project extends Component {
                                     >
                                         {contributor.login}
                                     </a>
-                                    </li>
-                                );
-                            })}
-                        </ul>
-                    </li>
-                    <li> 
-                        Project Languages:
-                        <ul>
-                            {languagesArray.map((language, index) => {
-                                return <li key={index}>{language}</li>;
-                            })}
-                        </ul>
-                    </li>
-                    <li> Project GitHub Link: {this.props.github} </li>
-                    <li> Project License: {this.props.license ? this.props.license : "No License Stated"} </li>
+                                </li>
+                            );
+                        })}
                 </ul>
-                <hr />
+                <h4>
+                    <FontAwesomeIcon icon={faGlobe} />{" "}
+                    Language(s):
+                </h4>
+                <ul>
+                    {languagesArray.map((language, index) => {
+                        return <li key={index}>{language}</li>;
+                    })}
+                </ul>
+                {this.props.forks !== null ? (
+                    <h4>
+                        <FontAwesomeIcon icon={faCodeBranch} /> Fork(s):{" "}
+                        {this.props.forks}
+                    </h4>
+                ) : null}
+                <h4>
+                    <FontAwesomeIcon icon={faStar} /> Star(s):{" "}
+                    {this.props.stars}
+                </h4>
+                {this.props.license !== null ? (
+                    <h5>
+                        <FontAwesomeIcon icon={faBalanceScale} />{" "}
+                        {this.props.license.name}
+                    </h5>
+                ) : null}
             </div>
         )
-    } 
+    }
 };
 
 export default Project;
