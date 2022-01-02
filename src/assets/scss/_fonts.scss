@@ -1,0 +1,28 @@
+@font-face {
+    font-family: 'Noteworthy Light';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Noteworthy Light'), url('../font/Noteworthy-Lt.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Optima';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Optima'), url('../font/OPTIMA.woff') format('woff');
+}
+    
+
+@font-face {
+    font-family: 'Optima';
+    font-style: italic;
+    font-weight: normal;
+    src: local('Optima Italic'), url('../font/Optima_Italic.woff') format('woff');
+}
+    
+@font-face {
+    font-family: 'Optima';
+    font-style: normal;
+    font-weight: bold;
+    src: local('Optima Bold'), url('../font/OPTIMA_B.woff') format('woff');
+}
