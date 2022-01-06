@@ -5,7 +5,8 @@
     border: 1px solid black;
     border-radius: 10px;
     width: 400px;
-    margin: 5px;
+    min-height: 350px;
+    margin: 10px 0px;
 
     font-family: "Optima";
 
@@ -14,7 +15,11 @@
         text-decoration: none;
     }
 
-    h4, p {
+    h4 {
+        font-weight: bold;
+    }
+
+    h4, h5, p {
         font-size: 14px;
     }
 
