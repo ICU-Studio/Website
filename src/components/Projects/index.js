@@ -31,6 +31,7 @@ class Projects extends Component {
             });
 
     render() {
+        console.log(this.state.projects)
         let projectArray = this.state.projects.map(project => {
             return project.fork === false ? (
                 <Project

@@ -10,6 +10,7 @@ const extractMetaData = async (filename) => {
             // load front-matter
             const meta = safeLoadFront(text);
             const markdown = meta.__content;
+            delete meta.__content;
             return [meta, markdown];
         })
         .catch((err) => {

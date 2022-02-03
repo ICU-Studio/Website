@@ -47,7 +47,7 @@ class Project extends Component {
         let languagesArray = Object.keys(this.state.languages);
         return (
             <div>
-                {/* {!ignore.includes(this.props.id) ? ( */}
+                {!ignore.includes(this.props.id) ? (
                     <div id={this.props.id} className={styles.Project}>
                         <a href={this.props.github}>{this.props.name.toUpperCase()}</a>
                         <p>{this.props.description}</p>
@@ -99,7 +99,7 @@ class Project extends Component {
                             </div>
                         ) : null}
                     </div>
-                {/* ) : null} */}
+                ) : null}
             </div>
         )
     }

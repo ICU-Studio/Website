@@ -1,7 +1,11 @@
 import React from 'react';
 
-export const Page = () => {
+import PostList from '../../components/PostList';
+
+export const Posts = () => {
     return (
-        <div></div>
+        <div>
+            <PostList />
+        </div>
     )
 }
